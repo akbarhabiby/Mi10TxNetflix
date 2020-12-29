@@ -1,5 +1,8 @@
 # Mi10T x Netflix
 
+## Event detail
+[Click here](https://event.mi.com/my/campaign2020/serie-mi-10-t)
+
 ## Project setup
 ```
 npm install
