@@ -12,7 +12,7 @@ console.log('Supported Country: MY TH PH')
 console.log('Github Repository => https://github.com/akbarhabiby/Mi10TxNetflix')
 console.log('==================================')
 
-setups.forEach(async (setup) => {
+setups.forEach((setup) => {
   setup.url += uuid
   console.log(`[${setup.countryName}] Challenge the captha`)
   console.log(`=> ${setup.url}`)
