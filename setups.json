@@ -1,0 +1,20 @@
+[
+  {
+    "countryCode": "my",
+    "countryName": "Malaysia",
+    "captha": "",
+    "url": "https://hd.c.mi.com/my/eventapi/api/aptcha/index?type=netflix&uid="
+  },
+  {
+    "countryCode": "th",
+    "countryName": "Thailand",
+    "captha": "",
+    "url": "https://hd.c.mi.com/th/eventapi/api/aptcha/index?type=netflix&uid="
+  },
+  {
+    "countryCode": "ph",
+    "countryName": "Philippines",
+    "captha": "",
+    "url": "https://hd.c.mi.com/ph/eventapi/api/aptcha/index?type=netflix&uid="
+  }
+]
