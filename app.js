@@ -4,35 +4,30 @@ const setups = require('./setups.json')
 const fs = require('fs')
 const {
   generateIMEI,
-  fetchNetflixURL
+  fetchNetflixURL,
+  setupCaptha
 } = require('./helpers')
 
 console.log('======== Mi 10T x Netflix ========')
 console.log('Supported Country: MY TH PH')
 console.log('Github Repository => https://github.com/akbarhabiby/Mi10TxNetflix')
-console.log('==================================')
+console.log('==================================\n')
 
-setups.forEach((setup) => {
-  setup.url += uuid
-  console.log(`[${setup.countryName}] Challenge the captha`)
-  console.log(`=> ${setup.url}`)
-  const newCaptha = prompt('Input captha: ')
-  setup.captha = newCaptha
-  console.log(`Captha saved.`)
-})
+// * Setup the captha
+setupCaptha(setups, uuid)
 
-console.log('[READY]')
-
-async function start() {
+// * Main App
+async function start(imeiPrefix) {
+  console.log('=========== [STARTING] ===========\n')
   while(true) {
-    const imei = generateIMEI(process.argv[2])
+    const imei = generateIMEI(imeiPrefix)
     for(const i in setups) {
       try {
         const setup = setups[i]
         const { data } = await fetchNetflixURL(setup, uuid, imei)
         if(data.msg && data.msg == 'Success') {
           const result = `${data.data.redirect_url}|${imei}|${setup.countryName}`
-          fs.appendFileSync('result.txt', `${result}\n`)
+          fs.appendFileSync('results.txt', `${result}\n`)
           console.log(`VALID => ${result}`)
         } else if (data.code && data.code == 800706) {
           console.log(`[${setup.countryName}] Challenge the captha again`)
@@ -52,4 +47,5 @@ async function start() {
   }
 }
 
-start()
+// * Start the bot
+start(process.argv[2])
