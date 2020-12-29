@@ -10,7 +10,7 @@ npm install
 npm start
 ```
 
-## Run the bot via custom IMEI prefix
+## Run the bot with custom IMEI prefix
 ```
 node app.js xxxx
 ```
