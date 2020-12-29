@@ -25,7 +25,7 @@ console.log('[READY]')
 
 async function start() {
   while(true) {
-    const imei = generateIMEI()
+    const imei = generateIMEI(process.argv[2])
     for(const i in setups) {
       try {
         const setup = setups[i]
